@@ -1,8 +1,17 @@
 import React from "react";
 
 import Footer from "../Footer/Footer";
-
 import Card from "../BaseComponents/Card";
+import Calendar from "../Calendar/Calendar";
+import Tasks from "../Tasks/Tasks";
+
+import mock from "./mock-content";
+
+import {
+  BellFill,
+  EnvelopeFill,
+  ThreeDotsVertical,
+} from "react-bootstrap-icons";
 
 const Content = () => {
   return (
@@ -13,14 +22,6 @@ const Content = () => {
         <div id="content">
           {/* Topbar */}
           <nav className="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-            {/* Sidebar Toggle (Topbar) */}
-            <button
-              id="sidebarToggleTop"
-              className="btn btn-link d-md-none rounded-circle mr-3"
-            >
-              <i className="fa fa-bars"></i>
-            </button>
-
             {/* Topbar Search */}
             <form className="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
               <div className="input-group">
@@ -85,7 +86,7 @@ const Content = () => {
                   aria-haspopup="true"
                   aria-expanded="false"
                 >
-                  <i className="fas fa-bell fa-fw"></i>
+                  <BellFill />
                   {/* Counter - Alerts */}
                   <span className="badge badge-danger badge-counter">3+</span>
                 </button>
@@ -152,7 +153,7 @@ const Content = () => {
                   aria-haspopup="true"
                   aria-expanded="false"
                 >
-                  <i className="fas fa-envelope fa-fw"></i>
+                  <EnvelopeFill />
                   {/* Counter - Messages */}
                   <span className="badge badge-danger badge-counter">7</span>
                 </button>
@@ -259,7 +260,7 @@ const Content = () => {
                   </span>
                   <img
                     className="img-profile rounded-circle"
-                    src="img/undraw_profile.svg"
+                    src="https://i.pravatar.cc/300"
                     alt="A smiling Douglas McGee"
                   />
                 </button>
@@ -302,129 +303,22 @@ const Content = () => {
             <div className="d-sm-flex align-items-center justify-content-between mb-4">
               <h1 className="h3 mb-0 text-gray-800">Dashboard</h1>
               <button className="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
-                <i className="fas fa-download fa-sm text-white-50"></i> Generate
-                Report
+                {/* ADD ICON HERE */}
+                Generate Report
               </button>
             </div>
 
             {/* Header Cards */}
-            <div className="row">
-              {Card("primary", 14, "Total", "calendar")}
-              {/* <div className="col-xl-3 col-md-6 mb-4">
-                <div className="card border-left-primary shadow h-100 py-2">
-                  <div className="card-body">
-                    <div className="row no-gutters align-items-center">
-                      <div className="col mr-2">
-                        <div className="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                          Total
-                        </div>
-                        <div className="h5 mb-0 font-weight-bold text-gray-800">
-                          14
-                        </div>
-                      </div>
-                      <div className="col-auto">
-                        <i className="fas fa-calendar fa-2x text-gray-300"></i>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div> */}
-
-              <div className="col-xl-3 col-md-6 mb-4">
-                <div className="card border-left-primary shadow h-100 py-2">
-                  <div className="card-body">
-                    <div className="row no-gutters align-items-center">
-                      <div className="col mr-2">
-                        <div className="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                          Flowering
-                        </div>
-                        <div className="h5 mb-0 font-weight-bold text-gray-800">
-                          9
-                        </div>
-                      </div>
-                      <div className="col-auto">
-                        <i className="fas fa-calendar fa-2x text-gray-300"></i>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="col-xl-3 col-md-6 mb-4">
-                <div className="card border-left-success shadow h-100 py-2">
-                  <div className="card-body">
-                    <div className="row no-gutters align-items-center">
-                      <div className="col mr-2">
-                        <div className="text-xs font-weight-bold text-success text-uppercase mb-1">
-                          Vegetating
-                        </div>
-                        <div className="h5 mb-0 font-weight-bold text-gray-800">
-                          5
-                        </div>
-                      </div>
-                      <div className="col-auto">
-                        <i className="fas fa-dollar-sign fa-2x text-gray-300"></i>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="col-xl-3 col-md-6 mb-4">
-                <div className="card border-left-info shadow h-100 py-2">
-                  <div className="card-body">
-                    <div className="row no-gutters align-items-center">
-                      <div className="col mr-2">
-                        <div className="text-xs font-weight-bold text-info text-uppercase mb-1">
-                          Clones
-                        </div>
-                        <div className="row no-gutters align-items-center">
-                          <div className="col-auto">
-                            <div className="h5 mb-0 mr-3 font-weight-bold text-gray-800">
-                              0
-                            </div>
-                          </div>
-                          <div className="col">
-                            <div className="progress progress-sm mr-2">
-                              <div
-                                className="progress-bar bg-info"
-                                role="progressbar"
-                                //   style={{ width: "50%" }}
-                                aria-valuenow="50"
-                                aria-valuemin="0"
-                                aria-valuemax="100"
-                              ></div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="col-auto">
-                        <i className="fas fa-clipboard-list fa-2x text-gray-300"></i>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="col-xl-3 col-md-6 mb-4">
-                <div className="card border-left-warning shadow h-100 py-2">
-                  <div className="card-body">
-                    <div className="row no-gutters align-items-center">
-                      <div className="col mr-2">
-                        <div className="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                          Seedling
-                        </div>
-                        <div className="h5 mb-0 font-weight-bold text-gray-800">
-                          0
-                        </div>
-                      </div>
-                      <div className="col-auto">
-                        <i className="fas fa-comments fa-2x text-gray-300"></i>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <div className="row justify-content-between">
+              {mock.cards.map((info) =>
+                Card(
+                  info.title,
+                  info.sideColor,
+                  info.plantCount,
+                  info.faIcon,
+                  info.cardKey
+                )
+              )}
             </div>
 
             {/* Content Row */}
@@ -445,7 +339,7 @@ const Content = () => {
                         aria-haspopup="true"
                         aria-expanded="false"
                       >
-                        <i className="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                        <ThreeDotsVertical />
                       </button>
                       <div
                         className="dropdown-menu dropdown-menu-right shadow animated--fade-in"
@@ -464,15 +358,14 @@ const Content = () => {
                     </div>
                   </div>
                   {/* Card Body */}
-                  <div className="card-body">
-                    <div className="chart-area">
-                      <canvas id="myAreaChart"></canvas>
+                  <div className="card-body calendar-card-wrapper">
+                    <div className="calendar-area">
+                      <Calendar id="calendar" />
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* Pie Chart */}
               <div className="col-xl-4 col-lg-5">
                 <div className="card shadow mb-4">
                   {/* Card Header - Dropdown */}
@@ -486,7 +379,7 @@ const Content = () => {
                         aria-haspopup="true"
                         aria-expanded="false"
                       >
-                        <i className="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                        <ThreeDotsVertical />
                       </button>
                       <div
                         className="dropdown-menu dropdown-menu-right shadow animated--fade-in"
@@ -504,23 +397,8 @@ const Content = () => {
                       </div>
                     </div>
                   </div>
-                  {/* Card Body */}
-                  <div className="card-body">
-                    <div className="chart-pie pt-4 pb-2">
-                      <canvas id="myPieChart"></canvas>
-                    </div>
-                    <div className="mt-4 text-center small">
-                      <span className="mr-2">
-                        <i className="fas fa-circle text-primary"></i> Direct
-                      </span>
-                      <span className="mr-2">
-                        <i className="fas fa-circle text-success"></i> Social
-                      </span>
-                      <span className="mr-2">
-                        <i className="fas fa-circle text-info"></i> Referral
-                      </span>
-                    </div>
-                  </div>
+
+                  <Tasks />
                 </div>
               </div>
             </div>

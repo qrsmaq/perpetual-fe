@@ -1,8 +1,8 @@
 import React from "react";
 
-const Card = (sideColor, plantCount, title, faIcon) => {
+const Card = (title, sideColor, plantCount, faIcon, cardKey) => {
   return (
-    <div className="col-xl-2 col-md-6 mb-4">
+    <div className="col-xl-2 col-md-6 mb-4" key={cardKey}>
       <div className={`card border-left-${sideColor} shadow h-100 py-2`}>
         <div className="card-body">
           <div className="row no-gutters align-items-center">
